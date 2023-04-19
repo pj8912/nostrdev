@@ -18,7 +18,7 @@ $public_key  = $key->getPublicKey($private_key);
 
 
 $note = new Event();
-$note->setContent('This is working');
+$note->setContent('New Upload 2');
 $note->setKind(1);
 
 $signer = new Sign();
