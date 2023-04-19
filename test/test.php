@@ -9,7 +9,9 @@ $key = new Key();
 
 $private_key = $key->generatePrivateKey();
 $public_key  = $key->getPublicKey($private_key);
-echo "public key : ".$public_key;
+echo "public key : ".$public_key.PHP_EOL;
+echo "private key:".$private_key;
+
 
 ?>
 
