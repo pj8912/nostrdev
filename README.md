@@ -1,2 +1,3 @@
 # nostrdev
-Nostr development using python 
+Nostr examples
+ 
