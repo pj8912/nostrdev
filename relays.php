@@ -6,7 +6,11 @@
     <input type="text" name="relay" id="relay-input" placeholder="Add Relay">
     <button onclick="addRelay()">Add Relay</button>
     <hr>
+    <div class="relays">
+    </div>
 </div>
+
+
 
 <script>
     async function addRelay() {
@@ -31,17 +35,19 @@
         fetchRelays();
     }
 
-    async function fetchRelays() {
-        await fetch('get_relays.php')
+    function fetchRelays() {
+
+        fetch('get_relays.php')
             .then(res => res.json())
-            .then(data => {
-                if (data.status === 0) {
-
+            .then((data) => {
+                if (data.status == 0) {
+                    document.querySelector('#status_message').innerHTML = 'No relays'
                 } else if (data.status === 1) {
-
+                    console.log("Relays available")
                 }
             })
-            .catch(err => console.log(err))
+            .catch((err) => console.log(err))
     }
+
     window.onload = () => fetchRelays();
 </script>
