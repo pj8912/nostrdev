@@ -1,6 +1,5 @@
 <?php
 
-
 //create database test --WORKING
 
 // if (file_exists('nostr_php.db')) {
