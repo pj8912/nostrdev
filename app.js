@@ -1,9 +1,7 @@
 
 function generateKeys() {
-
     const keysBox = document.querySelector('#allkeys');
     const errmsg = document.querySelector('#errmsg');
-
     fetch('genkeys.php', {
         method: "POST",
         body: JSON.stringify({
@@ -19,10 +17,6 @@ function generateKeys() {
                 divElement1.style.padding = '10px';
                 divElement1.style.wordBreak = 'break-all';
                 divElement1.style.margin = '2px';
-
-
-
-
                 divElement1.innerHTML = `Public Key: <span id="pwd_spn1" class="password-span">  ${response.public_key} </span> <button style="background:white;border:none;" id="cp_btn1" onclick="copy_password1()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
   <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
 </svg></button>`;
@@ -39,11 +33,9 @@ function generateKeys() {
                 keysBox.appendChild(divElement2);
 
             }
-
             else if (response.status == 0) {
                 errmsg.innerHTML = 'KeyPair Generation Failed!!'
             }
-
         })
         .catch(err => console.log(err))
     keysBox.innerHTML = '';
@@ -75,30 +67,73 @@ function convertKeys() {
 
     const converted_key_div = document.querySelector('#converted_key');
     const con_errmsg = document.querySelector('#con_errmsg');
+    let val = document.getElementById('key_').value.trim();
 
-    fetch('convert_keys.php', {
-        method: "POST",
-        body: JSON.stringify({
-            msg: "convert_to_hex",
-            keyx: document.getElementById('key_').value.trim()
+    if (val.length > 0)
+        fetch('convert_keys.php', {
+            method: "POST",
+            body: JSON.stringify({
+                msg: "convert_to_hex",
+                keyx: document.getElementById('key_').value.trim()
+            })
         })
-    })
-        .then(response => response.json())
-        .then((response) => {
-            if (response.status == 1) {
-                console.log(response.hex_key);
-                const divElement1 = document.createElement('p');
-                divElement1.innerHTML = `Key in hex format:<br> Original Key : ${document.getElementById('key_').value}<br>
+            .then(response => response.json())
+            .then((response) => {
+                if (response.status == 1) {
+                    console.log(response.hex_key);
+                    const divElement1 = document.createElement('p');
+                    divElement1.innerHTML = `Key in hex format:<br> Original Key : ${document.getElementById('key_').value}<br>
                  in hex : ${response.hex_key}`;
-                converted_key_div.appendChild(divElement1)
-            }
-            else if (response.status == 0) {
-                con_errmsg.innerHTML = response.message;
-            }
+                    converted_key_div.appendChild(divElement1)
+                }
+                else if (response.status == 0) {
+                    con_errmsg.innerHTML = response.message;
+                }
+            })
+            .catch(err => console.log(err))
+
+    else return;
+}
+
+function convertHexToBech32() {
+    let key1 = document.getElementById('key1').value.trim();
+    let key2 = document.getElementById('key2').value.trim();
+    if (key1.length > 0 && key2.length > 0) {
+        fetch('convert_keys.php', {
+            method: "POST",
+            body: JSON.stringify({
+                msg: "convert_to_bech32",
+                pubkey: key1,
+                privkey: key2
+            })
         })
-        .catch(err => console.log(err))
+            .then(response => response.json())
+            .then((response) => {
+                if (response.status == 1) {
 
-
-    // document.getElementById('key_').value = '';
-    // converted_key_div.innerHTML = '';
+                    var publicKey = document.createElement('li');
+                    publicKey.innerHTML = `Public Key in bech32 : ${response.public_key}`;
+                    document.querySelector('#keylist').appendChild(publicKey);
+                    var privateKey = document.createElement('li');
+                    privateKey.innerHTML = `Private Key in bech32 : ${response.private_key}`;
+                    document.querySelector('#keylist').appendChild(privateKey);
+                    var hrline = document.createElement('hr');
+                    document.querySelector('#hrline').append = hrline;
+                }
+                else if (response.status == 0) {
+                    document.getElementById("alertmsg").innerHTML = response.message;
+                    setTimeout(function () {
+                        document.getElementById("alertmsg").innerHTML = '';
+                    }, 3000);
+                }
+                else {
+                    console.log('Err: No response')
+                }
+            })
+            .catch(err => console.log(err))
+            document.querySelector('#keylist').innerHTML = '';
+    }
+    else {
+        return;
+    }
 }

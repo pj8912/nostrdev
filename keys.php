@@ -32,12 +32,18 @@
 
         <div style="border: 1px solid #eee; padding:10px;margin-top:10px">
             <!-- hex to bech32 -->
+            <div id="alertmsg"></div>
             <h4>Convert hex keys to bech32 (npub, nsec)</h4>
-            <input type="text" name="hex_public_key" id="hexpublic_key" class="form-control" placeholder="Public Key(hex)">
+            <input type="text" name="hex_public_key" id="key1" class="form-control" placeholder="Public Key(hex)">
             <br>
-            <input type="text" name="hex_private_key" id="hexprivate_key" class="form-control" placeholder="Private Key(hex)">
+            <input type="text" name="hex_private_key" id="key2" class="form-control" placeholder="Private Key(hex)">
             <br>
-            <button onclick="convert_to_bech32()" class="btn btn-primary"> Convert to bech32 </button>
+            <button onclick="convertHexToBech32()" class="btn btn-primary"> Convert to bech32 </button>
+            <br>
+            <ul id="keylist">
+
+            </ul>
+            <div id="hrline"></div>
         </div>
 
     </div>
