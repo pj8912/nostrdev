@@ -6,21 +6,23 @@ $sql = "SELECT * FROM relays";
 $query = $db->query($sql);
 $relay_list = [];
 
-if ($res) {
-    while($row = $res->fetchArray(SQLITE3_ASSOC)){
+if ($query) {
+    while ($row = $query->fetchArray(SQLITE3_ASSOC)) {
         $relay_list[] = $row['relay_url'];
     }
     exit(json_encode(
         [
             'status' => 1,
-            'data' => $relay_list
+            'relays' => $relay_list
         ]
-        ));
-} else {
+    ));
+}
+
+else {
     exit(json_encode(
         [
             'status' => 0,
-            'data' => 'No relays added'
+            'message' => 'No relays added'
         ]
     ));
 }

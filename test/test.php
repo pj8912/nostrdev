@@ -20,7 +20,7 @@ $bech32_privateKey = $key->convertPrivateKeyToBech32($private_key);
 echo "public key : " . $bech32_publicKey . PHP_EOL;
 echo "private key:" . $bech32_privateKey;
 
-echo "public_key to hex: ". $key->convertToHex($bech32_publicKey);
+echo "\npublic_key to hex: ". $key->convertToHex($bech32_publicKey);
 
 
 ?>
