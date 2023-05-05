@@ -1,10 +1,6 @@
-
 <?php
-
 require_once "sql.php";
 $db = new database('nostr_php.db');
-
-
 $postdata = file_get_contents("php://input");
 $req = json_decode($postdata);
 $ws_url = $req->relayurl;

@@ -6,7 +6,6 @@ $ws_url = $req->wsurl;
 require_once "sql.php";
 $db = new database('nostr_php.db');
 $sql = "INSERT INTO relays(relay_url) VALUES('$ws_url')";
-
 if ($db->query($sql)) {
     exit(json_encode([
         'status' => 1,
