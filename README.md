@@ -1,5 +1,7 @@
 # nostrdev
 
+![Screenshot from 2023-05-12 19-50-33](https://github.com/pj8912/nostrdev/assets/59218902/7356a310-21c4-496d-9253-7e499811e0f5)
+
 <h2>Welcome to  NostrDev</h2>
 
 This application presents capabilities of the new [Nostr-PHP library](https://github.com/swentel/nostr-php/)
