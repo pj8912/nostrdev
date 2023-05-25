@@ -33,7 +33,7 @@ The goal of this app is to demonstrate the capabilities of the nostr-php library
 In the case of a bug report, bugfix or a suggestions, please feel very free to open an issue too.
 
 
-## Donate
+## Support
 
 Hi there! If you've found my work helpful or useful in any way, please consider supporting me by donating. Your support helps me continue to create and share useful projects with the community. Thank you for your generosity and support! :handshake:
 
