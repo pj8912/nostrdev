@@ -14,7 +14,10 @@ class Relay{
     public function upload(){
         $sql = "INSERT INTO {$this->table}(relay_url) VALUES({$this->url})";
         $stmt = $this->conn->query($sql);
-        return $stmt;
+       	if($stmt){
+		return true;
+	}
+	return false;
     }
 
     public function get(){
