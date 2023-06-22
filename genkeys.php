@@ -1,6 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
 use swentel\nostr\Key\Key;
+
 $postdata = file_get_contents("php://input"); //getdata
 $req = json_decode($postdata); //decode
 if ($req->data == 'getkeys') {
@@ -22,3 +23,4 @@ if ($req->data == 'getkeys') {
     ];
     exit(json_encode($message));
 }
+ 

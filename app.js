@@ -27,7 +27,7 @@ function generateKeys() {
                 divElement2.style.padding = '10px';
                 divElement2.style.wordBreak = 'break-all';
                 divElement2.style.margin = '2px';
-                divElement2.innerHTML = `Private Key: <span id="pwd_spn2" class="password-span"> ${response.private_key} </span> <button onclick="copy_keys('pwd_spn1')" style="background:white;border:none;" id="cp_btn2" onclick="copy_password2()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
+                divElement2.innerHTML = `Private Key: <span id="pwd_spn2" class="password-span"> ${response.private_key} </span> <button onclick="copy_keys('pwd_spn2')" style="background:white;border:none;" id="cp_btn2" onclick="copy_password2()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
   <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
 </svg></button>`;
                 keysBox.appendChild(divElement2);
@@ -51,7 +51,35 @@ function copy_keys(id){
     textArea.select();
     document.execCommand("Copy");
     textArea.remove();
+    openDialog()
 }
+function openDialog() {
+    var dialog = document.createElement('dialog');
+      dialog.className = 'dialog';
+      dialog.innerHTML = '<p>Copied Key!</p>';
+
+      // Append the dialog element to the body
+      document.body.appendChild(dialog);
+
+      // Show the dialog
+      dialog.showModal();
+
+       // Close the dialog when clicking outside
+       document.addEventListener('click', function(event) {
+        if (event.target === dialog) {
+          dialog.close();
+          // Remove the dialog element from the DOM
+          dialog.remove();
+        }
+      });
+
+      // Close the dialog after 3 seconds
+      setTimeout(function() {
+        dialog.close();
+        // Remove the dialog element from the DOM
+        dialog.remove();
+      }, 3000);
+  }
 
 
 function convertKeys() {
