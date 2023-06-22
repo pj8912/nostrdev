@@ -15,12 +15,21 @@ This application presents capabilities of the new [Nostr-PHP library](https://gi
 - Add Relays
 
 ## Get started
+
 ### Clone 
 - Clone the repo
+
  ``` 
  git clone https://github.com/pj8912/nostrdev.git
  ```
+ - Create Database
+ ```shell
+ ~/$ cd nostrdev
+ ~/nostrdev$ php create_database.php
+ ```
+
 ### Start
+
 - Start the application
 ```shell
 php -S localhost:4000
