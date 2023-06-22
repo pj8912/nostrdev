@@ -18,7 +18,7 @@
             <!-- bech32 to hex -->
             <h4>Convert bech32 encoded keys (npub, nsec) to hex</h4>
             <input type="text" name="hex_public_key" id="key_" class="form-control" placeholder="Public/Private Key (npub/nsec)"><br>
-            <button onclick="convertKeys()" class="btn btn-primary"> Convert to hex </button>
+            <button onclick="convertKeys()" class="btn btn-primary"> Convert bech32 ->>  hex </button>
             <br>
             <div id="converted_key"></div>
         </div>
@@ -31,7 +31,7 @@
             <br>
             <input type="text" name="hex_private_key" id="key2" class="form-control" placeholder="Private Key(hex)">
             <br>
-            <button onclick="convertHexToBech32()" class="btn btn-primary"> Convert to bech32 </button>
+            <button onclick="convertHexToBech32()" class="btn btn-primary"> Convert to hex ->> bech32 </button>
             <br>
             <ul id="keylist"> </ul>
             <div id="hrline"></div>
@@ -40,4 +40,4 @@
 </div>
 
 <script src="app.js"></script>
-<?php include 'includes/footer.php'; ?>
+<?php include 'includes/footer.php'; ?> 

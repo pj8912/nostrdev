@@ -19,8 +19,13 @@
             /* margin: 2px; */
         }
         .main-tite{
-            border-bottom : 2px solid black;
+            /* border-bottom : 2px solid black; */
+            /* margin-right: 10px; */
+            display: flex;
+            flex-direction: row;
+
         }
+    
     </style>
 </head>
 <body>
