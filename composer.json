@@ -1,5 +1,10 @@
 {
     "require": {
         "swentel/nostr-php": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "NostrDev\\": "src/"
+        }
     }
 }

@@ -43,7 +43,7 @@ function generateKeys() {
 
 
 //copy generated keys
-function copy_keys(id){
+function copy_keys(id) {
     var copyText = document.getElementById(id)
     var textArea = document.createElement("textarea")
     textArea.value = copyText.textContent;
@@ -55,31 +55,31 @@ function copy_keys(id){
 }
 function openDialog() {
     var dialog = document.createElement('dialog');
-      dialog.className = 'dialog';
-      dialog.innerHTML = '<p>Copied Key!</p>';
+    dialog.className = 'dialog';
+    dialog.innerHTML = '<p>Copied Key!</p>';
 
-      // Append the dialog element to the body
-      document.body.appendChild(dialog);
+    // Append the dialog element to the body
+    document.body.appendChild(dialog);
 
-      // Show the dialog
-      dialog.showModal();
+    // Show the dialog
+    dialog.showModal();
 
-       // Close the dialog when clicking outside
-       document.addEventListener('click', function(event) {
+    // Close the dialog when clicking outside
+    document.addEventListener('click', function (event) {
         if (event.target === dialog) {
-          dialog.close();
-          // Remove the dialog element from the DOM
-          dialog.remove();
+            dialog.close();
+            // Remove the dialog element from the DOM
+            dialog.remove();
         }
-      });
+    });
 
-      // Close the dialog after 3 seconds
-      setTimeout(function() {
+    // Close the dialog after 3 seconds
+    setTimeout(function () {
         dialog.close();
         // Remove the dialog element from the DOM
         dialog.remove();
-      }, 3000);
-  }
+    }, 3000);
+}
 
 
 function convertKeys() {
@@ -164,7 +164,7 @@ function addRelay() {
         fetch('add_relay.php', {
             method: "POST",
             body: JSON.stringify({
-                relayurl: document.querySelector('#relay-input').value.trim()
+                relayurl: relay_value
             })
         })
             .then((response) => response.json())

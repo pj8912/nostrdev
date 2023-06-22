@@ -1,13 +1,9 @@
 <?php
 include 'includes/header.php';
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 0);
-error_reporting(E_ALL & ~E_NOTICE);
-
+include 'includes/error.php';
 ?>
-<div class="container">
 
+<div class="container">
     <div class="card card-body col-md-4 mt-5">
         <h3>Publish Note</h3>
         <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">

@@ -6,7 +6,6 @@ $req = json_decode($postdata);
 $ws_url = $req->relayurl;
 
 $sql = "INSERT INTO relays(relay_url) VALUES('$ws_url')";
-// $res = $db->query($sql);
 
 if ($db->query($sql)) {
     exit(json_encode(
