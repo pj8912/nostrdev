@@ -16,17 +16,21 @@ This application presents capabilities of the new [Nostr-PHP library](https://gi
 
 ## Get started
 
-### Clone 
+### **Clone** 
 - Clone the repo
 
  ``` 
  git clone https://github.com/pj8912/nostrdev.git
  ```
- - Create Database
+ - **Create Database**
  ```shell
  ~/$ cd nostrdev
  ~/nostrdev$ php create_database.php
  ```
+- **composer install**
+```shell
+composer install
+````
 
 ### Start
 
