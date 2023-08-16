@@ -27,7 +27,6 @@ $template->main_header();
             <br>
             <div id="converted_key"></div>
         </div>
-
         <div style="border: 1px solid #eee; padding:10px;margin-top:10px">
             <!-- hex to bech32 -->
             <div id="alertmsg"></div>
@@ -43,7 +42,6 @@ $template->main_header();
         </div>
     </div>
 </div>
-
 <script src="../app.js"></script>
 <?php 
 $template->main_footer();

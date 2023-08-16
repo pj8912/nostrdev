@@ -1,13 +1,9 @@
 <?php
-
 require_once 'vendor/autoload.php';
 use NostrDev\Template\Template;
-
 $template = new Template();
 $template->main_header();
-
 ?>
-
 <div class="container mt-5">
     <div class="main-title">
         <img src="includes/nostr-logo.png" alt="nostr-logo" width="80" height="50">
@@ -32,7 +28,6 @@ $template->main_header();
         </ul>
     </div>
 </div>
-
 <?php
 $template->main_footer();
 ?>

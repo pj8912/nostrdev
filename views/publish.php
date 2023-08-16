@@ -1,7 +1,9 @@
 <?php
-include '../includes/header.php';
+require_once 'vendor/autoload.php';
+use NostrDev\Template\Template;
+$template = new Template();
+$template->main_header();
 ?>
-
 <div class="container">
     <div class="card card-body col-md-6 mt-5 m-auto">
         <h3><i class="fas fa-rss-square" aria-hidden="true"></i> Publish Note</h3>
@@ -19,7 +21,6 @@ include '../includes/header.php';
         </form>
     </div>
 </div>
-
-<?php
-include '../includes/footer.php';
-?>
+<?php 
+$template->main_footer();
+?> 
