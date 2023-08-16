@@ -172,12 +172,15 @@ function addRelay() {
             .then(response => {
                 if (response.status == 1) {
                     document.getElementById('status_message').innerHTML = response.message;
+                    document.getElementById('status_message').style.color ="green"
                     setTimeout(function () {
                         document.getElementById("status_message").innerHTML = '';
                     }, 3000);
                 }
                 else if (response.status == 0) {
                     document.getElementById('status_message').innerHTML = response.message;
+                    document.getElementById('status_message').style.color ="red"
+
                     setTimeout(function () {
                         document.getElementById("status_message").innerHTML = '';
                     }, 3000);

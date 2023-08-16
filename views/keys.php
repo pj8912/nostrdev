@@ -44,7 +44,7 @@ $template->main_header();
     </div>
 </div>
 
-<script src="app.js"></script>
+<script src="../app.js"></script>
 <?php 
 $template->main_footer();
 ?> 

@@ -1,4 +1,4 @@
-<?php include 'includes/header.php'; ?>
+<?php include '../includes/header.php'; ?>
 <div class="container mt-5">
     <div style="border: 1px solid #eee; padding:10px">
         <h2><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-server" viewBox="0 0 16 16">
@@ -16,5 +16,5 @@
 <script>
     window.onload = () => fetchRelays();
 </script>
-<script src="app.js"></script>
-<?php include 'includes/footer.php'; ?>
+<script src="../app.js"></script>
+<?php include '../includes/footer.php'; ?>

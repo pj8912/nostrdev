@@ -1,39 +1,39 @@
 <?php
 
-require_once 'vendor/autoload.php';
-use NostrDev\Template\Template;
+require_once 'router.php';
 
-$template = new Template();
-$template->main_header();
+// ##################################################
+// ##################################################
+// ##################################################
 
-?>
+// Static GET
+// In the URL -> http://localhost
+// The output -> Index
 
-<div class="container mt-5">
-    <div class="main-title">
-        <img src="includes/nostr-logo.png" alt="nostr-logo" width="80" height="50">
-        <span class="h2">
-            NostrDev
-        </span>
-    </div>
-    <br>
-    <div class="links"><a href="keys.php"><i class="fas fa-key"></i> Keys</a>
-        <a href="publish.php"><i class="fas fa-rss-square"></i> Publish</a>
-        <a href="relays.php"><i class="fas fa-server"></i> Relays</a>
-        <a href="https://github.com/pj8912/nostrdev"><i class="fa fa-github"></i> Github</a>
-    </div>
-    <hr>
-    <div class="mt-3">
-        <h4>Features</h4>
-        <ul style="list-style: none;">
-            <li>&#8594; Generate Keys</li>
-            <li>&#8594; Convert Keys</li>
-            <li>&#8594; Publish a Note</li>
-            <li>&#8594; Add Relays</li>
-        </ul>
-    </div>
-</div>
+// homepage
+get('/', 'views/index.php');
 
-<?php
-$template->main_footer();
-?>
+// publish page
+get('/publishpage', 'views/publish.php');
+// publish
+post('/publish','publish.php');
 
+// keys page
+get('/allkeys','views/keys.php');
+
+// relayspage
+get('/relayspage', 'views/relays.php');
+
+
+
+
+
+// ##################################################
+// ##################################################
+// ##################################################
+// any can be used for GETs or POSTs
+
+// For GET or POST
+// The 404.php which is inside the views folder will be called
+// The 404.php has access to $_GET and $_POST
+any('/404','views/404.php');
